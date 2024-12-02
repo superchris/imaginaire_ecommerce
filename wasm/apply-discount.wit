@@ -1,0 +1,20 @@
+package local:apply-discount;
+
+world apply-discount {
+  record line-item {
+    product: string,
+    quantity: u32,
+    price: u32
+  }
+  record discount {
+    description: string,
+    amount: u32
+  }
+  record order {
+    customer: string,
+    line-items: list<line-item>,
+    total: u32
+  }
+
+  export apply-discount: func(order: order) -> option<discount>;
+}
